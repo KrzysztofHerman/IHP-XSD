@@ -39,3 +39,6 @@ To run the example on the sample XML instance document execute:
 ```
 ./driver ../hello.xml
 ```
+
+TO generate C++ tree exec:
+xsd cxx-tree mos.xsd
