@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Library">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Component">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Description" type="xs:string" />
+              <xs:element name="Netlists">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="NgspiceNetlist">
+                      <xs:complexType>
+                        <xs:attribute name="value" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Symbols">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Symbol">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="File" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:string" use="required" />
+                        <xs:attribute name="type" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Parameters">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Parameter">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Description" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                        <xs:attribute name="unit" type="xs:string" use="required" />
+                        <xs:attribute name="default_value" type="xs:decimal" use="required" />
+                        <xs:attribute name="show" type="xs:boolean" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required" />
+            <xs:attribute name="schematic_id" type="xs:string" use="required" />
+            <xs:attribute name="show_name" type="xs:boolean" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

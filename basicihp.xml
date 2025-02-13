@@ -1,0 +1,32 @@
+<!-- Add XML Data -->
+<Library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="basicihp.xsd" name="IHP=Open-PDK">
+    <Component name="sg13_lv_nmos" schematic_id = "M" show_name="true">
+        <Description>
+            low voltage nmos
+        </Description>
+        <Netlists>
+            <NgspiceNetlist value = 'XM{PartCounter} {nets} sg13_lv_nmos w={w} l={l} ng={ng} m={m}'>
+                </NgspiceNetlist>
+        </Netlists>
+        <Symbols>
+            <Symbol id="Standard" type="external"> <!-- Defined in a separate file -->
+               <File>{QUCS_S_COMPONENTS_LIBRARY}/Nonlinear_Components_Symbols/NMOS.sym</File>
+           </Symbol>
+        </Symbols>
+        <Parameters>
+            <Parameter name="w" unit="um" default_value="1.0" show="true">
+                <Description>Width</Description>
+            </Parameter>
+            <Parameter name="l" unit="um" default_value="0.13" show="true">
+                <Description>Length</Description>
+            </Parameter>
+            <Parameter name="ng" unit="" default_value="1" show="true">
+                <Description>Number of fingers</Description>
+            </Parameter>
+            <Parameter name="m" unit="" default_value="1" show="true">
+                <Description>Multiplier</Description>
+            </Parameter>
+        </Parameters>
+    </Component>
+</Library>
