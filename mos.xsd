@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- Root element -->
+    <xs:element name="Library">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Component" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Component -->
+    <xs:element name="Component">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Description" type="xs:string"/>
+                <xs:element name="Models"/>
+                <xs:element name="Symbols"/>
+                <xs:element name="Parameters"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="schematic_id" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Models -->
+    <xs:element name="Models">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DefaultModel"/>
+                <xs:element name="SpiceModel"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DefaultModel">
+        <xs:complexType>
+            <xs:attribute name="value" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="SpiceModel">
+        <xs:complexType>
+            <xs:attribute name="value" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Symbols -->
+    <xs:element name="Symbols">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Symbol"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Symbol">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Line" maxOccurs="unbounded"/>
+                <xs:element name="PortSym" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Line">
+        <xs:complexType>
+            <xs:attribute name="x1" type="xs:int" use="required"/>
+            <xs:attribute name="y1" type="xs:int" use="required"/>
+            <xs:attribute name="x2" type="xs:int" use="required"/>
+            <xs:attribute name="y2" type="xs:int" use="required"/>
+            <xs:attribute name="color" type="xs:string" use="required"/>
+            <xs:attribute name="width" type="xs:int" use="required"/>
+            <xs:attribute name="style" type="xs:int" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="PortSym">
+        <xs:complexType>
+            <xs:attribute name="x" type="xs:int" use="required"/>
+            <xs:attribute name="y" type="xs:int" use="required"/>
+            <xs:attribute name="type" type="xs:int" use="required"/>
+            <xs:attribute name="angle" type="xs:int" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Parameters -->
+    <xs:element name="Parameters">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Parameter" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Parameter">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Description" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="unit" type="xs:string" use="optional"/>
+            <xs:attribute name="default_value" type="xs:string" use="required"/>
+            <xs:attribute name="show" type="xs:int" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
