@@ -19,7 +19,7 @@ main (int argc, char* argv[])
 
   try
   {
-    unique_ptr<hello_t> h (hello (argv[1]));
+    unique_ptr<basicihp_t> h (basicihp (argv[1]));
 
     for (hello_t::name_const_iterator i (h->name ().begin ());
          i != h->name ().end ();

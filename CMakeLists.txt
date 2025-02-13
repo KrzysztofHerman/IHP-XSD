@@ -14,21 +14,21 @@ include_directories(/usr/local/include)
 
 # Run XSD tool to generate C++ files from hello.xsd
 add_custom_command(
-    OUTPUT hello.hxx hello.cxx
-    COMMAND xsd cxx-tree ../hello.xsd
-    DEPENDS hello.xsd
+    OUTPUT basicihp.hxx basicihp.cxx
+    COMMAND xsd cxx-tree ../basicihp.xsd
+    DEPENDS basicihp.xsd
     COMMENT "Generating C++ files from hello.xsd"
 )
 
 # Define a custom target to generate the schema files
 add_custom_target(generate_xsd
-    DEPENDS hello.hxx hello.cxx
+    DEPENDS basicihp.hxx basicihp.cxx
 )
 
 # Define source files
 set(SOURCES
     driver.cxx
-    hello.cxx
+    basicihp.cxx
 )
 
 # Add the executable
