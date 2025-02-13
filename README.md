@@ -37,8 +37,8 @@ make
 
 To run the example on the sample XML instance document execute:
 ```
-./driver ../hello.xml
+./driver ../basicihp.xml
 ```
 
 TO generate C++ tree exec:
-xsd cxx-tree mos.xsd
+xsd cxx-tree basicihp.xsd
